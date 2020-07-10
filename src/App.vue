@@ -3,16 +3,6 @@
     <AppBar></AppBar>
 
     <v-main>
-      <v-sheet dark>
-        <v-img
-          src="https://cdn.pixabay.com/photo/2020/04/17/14/16/mountains-5055387_1280.jpg"
-          height="100vh"
-          width="100vw"
-        >
-          <v-container class="fill-height"></v-container>
-        </v-img>
-      </v-sheet>
-
       <v-container>
         <router-view></router-view>
       </v-container>

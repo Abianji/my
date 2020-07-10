@@ -5,15 +5,15 @@
         <v-row align="start">
           <v-col cols="12" md="3">
             <h4 class="text-h5 font-weight-bold">Maple</h4>
-            <p class="text-body-1">This is Maple's home.</p>
+            <p class="text-body-1">This is Maple's home,that's it.</p>
           </v-col>
 
           <v-col cols="12" md="3">
             <v-list flat color="transparent">
-              <v-subheader class="text-h6">HeroUI</v-subheader>
+              <v-subheader class="text-h6">DDXX</v-subheader>
               <v-list-item-group color="primary">
                 <v-list-item
-                  v-for="(item, i) in heroui"
+                  v-for="(item, i) in ddxx"
                   :key="i"
                   :href="item.href"
                   dense
@@ -29,10 +29,10 @@
 
           <v-col cols="12" md="3">
             <v-list flat color="transparent">
-              <v-subheader class="text-h6">Giraffe</v-subheader>
+              <v-subheader class="text-h6">Links</v-subheader>
               <v-list-item-group color="primary">
                 <v-list-item
-                  v-for="(item, i) in shock"
+                  v-for="(item, i) in links"
                   :key="i"
                   :href="item.href"
                   dense
@@ -48,20 +48,17 @@
 
           <v-col cols="12" md="3">
             <div>
-              <h5 class="text-h6 font-weight-bold">Subscribe</h5>
-              <p class="text-body-1">
-                The latest Rocket news, articles, and resources, sent straight
-                to your inbox every month.
-              </p>
+              <h5 class="text-h6 font-weight-bold">Nothing</h5>
+              <p
+                class="text-body-1"
+              >A child is a book,want to understand him,will have to walk into their souls.</p>
             </div>
 
             <v-row>
-              <v-col cols="8">
-                <v-text-field label="Filled" solo light hide-details></v-text-field>
-              </v-col>
-
-              <v-col cols="4">
-                <v-btn large block color="secondary">Subscribe</v-btn>
+              <v-col cols="12">
+                <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
+                  <v-icon size="24px">{{ icon }}</v-icon>
+                </v-btn>
               </v-col>
             </v-row>
           </v-col>
@@ -71,10 +68,10 @@
           Copyright &copy;
           <a
             class="white--text"
-            href="https://heroui.net"
+            href="https://github.com/Abianji/my"
             target="_blank"
             rel="noopener noreferrer"
-          >HreoUI</a>
+          >DDXX</a>
           {{ new Date().getFullYear() }}. All rights reserved.
         </div>
       </v-container>
@@ -85,34 +82,35 @@
 <script>
 export default {
   data: () => ({
-    heroui: [
+    ddxx: [
       {
         text: "Github",
-        href: "https://github.com/heroui"
+        href: "https://github.com/Abianji/my"
       },
       {
-        text: "Themes",
-        href: "https://heroui.net/"
+        text: "Phphub",
+        href: "https://laravel-china.org/"
       },
       {
-        text: "Vuetify Tutorials",
-        href: "https://heroui.net/vuetify2-guide/"
+        text: "Vuetify",
+        href: "https://vuetifyjs.com/zh-Hans/"
       }
     ],
-    shock: [
+    links: [
       {
-        text: "Download",
-        href: "https://github.com/heroui/giraffe"
+        text: "Reserve",
+        href: "#"
       },
       {
-        text: "Issues",
-        href: "https://github.com/heroui/giraffe/issues"
+        text: "Reserve",
+        href: "#"
       },
       {
-        text: "LICENSE",
-        href: "https://github.com/heroui/giraffe/blob/master/LICENSE"
+        text: "Reserve",
+        href: "#"
       }
-    ]
+    ],
+    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"]
   })
 };
 </script>

@@ -66,19 +66,19 @@ export default {
         title: "About",
         href: "http://localhost:8080",
         target: "_black",
-        to: "/About"
+        to: "/about"
       },
       {
-        title: "Detail",
+        title: "Music",
         href: "http://localhost:8080",
         target: "_black",
-        to: "/detail"
+        to: "/music"
       },
       {
-        title: "Authors",
+        title: "Other",
         href: "http://localhost:8080",
         target: "_black",
-        to: "/authors"
+        to: "/other"
       }
     ]
   })
