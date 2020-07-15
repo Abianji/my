@@ -63,10 +63,10 @@ export default {
         to: "/"
       },
       {
-        title: "About",
+        title: "Todo",
         href: "http://localhost:8080",
         target: "_black",
-        to: "/about"
+        to: "/todo"
       },
       {
         title: "Music",
@@ -75,10 +75,16 @@ export default {
         to: "/music"
       },
       {
-        title: "Other",
+        title: "Life",
         href: "http://localhost:8080",
         target: "_black",
-        to: "/other"
+        to: "/life"
+      },
+      {
+        title: "About",
+        href: "http://localhost:8080",
+        target: "_black",
+        to: "/about"
       }
     ]
   })

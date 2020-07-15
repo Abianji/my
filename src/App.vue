@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire" style="background: #f4f6f9">
-    <AppBar></AppBar>
+    <!-- <AppBar></AppBar>
 
     <v-main>
       <v-container>
@@ -8,13 +8,15 @@
       </v-container>
     </v-main>
 
-    <Footer></Footer>
+    <Footer></Footer>-->
+
+    <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-import AppBar from "./components/Layout/AppBar";
-import Footer from "./components/Layout/Footer";
+// import AppBar from "./components/Layout/AppBar";
+// import Footer from "./components/Layout/Footer";
 
 export default {
   name: "App",
@@ -23,8 +25,8 @@ export default {
     dialog: false
   }),
   components: {
-    AppBar,
-    Footer
+    // AppBar,
+    // Footer
   }
 };
 </script>
