@@ -40,9 +40,8 @@
               <div>
                 <div class="pt-16">
                   <h2 class="text-h4 font-weight-bold pb-4">Recommended For You</h2>
-
                   <v-row>
-                    <v-col cols="12" md="6" lg="4" v-for="i in 3" :key="i">
+                    <v-col cols="12" md="6" lg="4" v-for="article in articles" :key="article.id">
                       <v-hover v-slot:default="{ hover }" open-delay="50" close-delay="50">
                         <div>
                           <v-card
@@ -51,8 +50,8 @@
                             :elevation="hover ? 12 : 0"
                             hover
                             link
-                            to="/article/articleContent"
-                            href="http://localhost:8080"
+                            to="article/articleContent"
+                            href="http://localhost:8080/"
                             target="_blank"
                           >
                             <v-img
@@ -65,22 +64,18 @@
                             ></v-img>
 
                             <v-card-text>
-                              <div class="text-h5 font-weight-bold primary--text">
-                                How to write an awesome blog
-                                post in 5 steps
-                              </div>
+                              <div
+                                class="text-h5 font-weight-bold primary--text"
+                              >{{ article.title }}</div>
 
-                              <div class="text-body-1 py-4">
-                                Ultrices sagittis orci a scelerisque. Massa
-                                placerat duis ultricies lacus sed turpis
-                              </div>
+                              <div class="text-body-1 py-4">{{ article.abstract }}</div>
 
                               <div class="d-flex align-center">
                                 <v-avatar color="accent" size="36">
-                                  <v-icon dark>mdi-feather</v-icon>
+                                  <v-icon dark>mdi-home-roof</v-icon>
                                 </v-avatar>
 
-                                <div class="pl-2">Yan Lee · 22 July 2019</div>
+                                <div class="pl-2">{{ article.author }} · 22 July 2019</div>
                               </div>
                             </v-card-text>
                           </v-card>
@@ -88,6 +83,9 @@
                       </v-hover>
                     </v-col>
                   </v-row>
+                  <div v-for="article in articles" :key="article.id">
+                    <HomeArticle v-bind:articles="article"></HomeArticle>
+                  </div>
                 </div>
 
                 <div class="pt-16">
@@ -104,9 +102,7 @@
                           class="elevation-2 fill-height"
                         >
                           <div class="d-flex flex-column justify-space-between fill-height">
-                            <v-card-text>
-                              <v-btn color="accent">ANIMALS</v-btn>
-                            </v-card-text>
+                            <v-card-text></v-card-text>
 
                             <v-card-text>
                               <div class="text-h5 py-3 font-weight-bold" style="line-height: 1.2">
@@ -130,10 +126,10 @@
                 </div>
 
                 <div class="pt-16">
-                  <h2 class="text-h4 font-weight-bold">Latest Posts</h2>
+                  <h2 class="text-h4 font-weight-bold">Our Life</h2>
 
                   <div>
-                    <v-row v-for="i in 3" :key="i" class="py-4">
+                    <v-row v-for="i in 2" :key="i" class="py-4">
                       <v-col cols="12" md="4">
                         <v-card flat height="100%">
                           <v-img
@@ -192,12 +188,29 @@
 import AppBar from "@/components/Layout/AppBar";
 import Footer from "@/components/Layout/Footer";
 import SiderBar from "@/components/Layout/Sidebar";
+import HomeArticle from "@/components/home/Article";
+// import Axios from "axios";
 export default {
   name: "Home",
   components: {
     SiderBar,
     AppBar,
-    Footer
+    Footer,
+    HomeArticle
+  },
+  data: () => ({
+    articles: Array
+  }),
+  created: function() {
+    this.$axios
+      .get("http://111.229.157.160/api/article")
+      .then(response => {
+        this.articles = response.data;
+        console.log(response.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 };
 </script>
