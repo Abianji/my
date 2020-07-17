@@ -83,9 +83,6 @@
                       </v-hover>
                     </v-col>
                   </v-row>
-                  <div v-for="article in articles" :key="article.id">
-                    <HomeArticle v-bind:articles="article"></HomeArticle>
-                  </div>
                 </div>
 
                 <div class="pt-16">
@@ -188,15 +185,13 @@
 import AppBar from "@/components/Layout/AppBar";
 import Footer from "@/components/Layout/Footer";
 import SiderBar from "@/components/Layout/Sidebar";
-import HomeArticle from "@/components/home/Article";
 // import Axios from "axios";
 export default {
   name: "Home",
   components: {
     SiderBar,
     AppBar,
-    Footer,
-    HomeArticle
+    Footer
   },
   data: () => ({
     articles: Array
