@@ -45,16 +45,16 @@
                           ></v-img>
 
                           <v-card-text>
-                            <div class="text-h5 font-weight-bold primary--text">{{ article.title }}</div>
+                            <div class="text-h5 font-weight-bold primary--text">Title</div>
 
-                            <div class="text-body-1 py-4">{{ article.abstract }}</div>
+                            <div class="text-body-1 py-4">Abstract</div>
 
                             <div class="d-flex align-center">
                               <v-avatar color="accent" size="36">
                                 <v-icon dark>mdi-home-roof</v-icon>
                               </v-avatar>
 
-                              <div class="pl-2">{{ article.author }} · {{ article.publish_at }}</div>
+                              <div class="pl-2">DDXX · 2020</div>
                             </div>
 
                             <div v-html="content" class="text-body-1 py-5"></div>
@@ -82,46 +82,7 @@
 </template>
 
 <script>
-import AppBar from "@/components/Layout/AppBar";
-import Footer from "@/components/Layout/Footer";
-import SiderBar from "@/components/Layout/Sidebar";
-
-import axios from "axios";
-import markdownit from "markdown-it";
-
-export default {
-  components: {
-    SiderBar,
-    AppBar,
-    Footer
-  },
-  data: () => ({
-    content: "",
-    src: "",
-    href: "http://111.229.157.160/uploads/",
-    oldsrc:
-      "https://cdn.pixabay.com/photo/2017/05/19/06/22/desktop-2325627_960_720.jpg",
-    article: Array
-  }),
-  created: function() {
-    var md = new markdownit({
-      html: true,
-      linkify: true,
-      typographer: true
-    });
-
-    axios
-      .get("http://111.229.157.160/api/article/" + this.$route.params.id)
-      .then(response => {
-        this.article = response.data.data;
-        this.src = "http://111.229.157.160/uploads/" + this.article.cover_img;
-        this.content = md.render(this.article.content);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }
-};
+export default {};
 </script>
 
 <style>
