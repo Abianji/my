@@ -113,9 +113,8 @@ export default {
     axios
       .get("http://111.229.157.160/api/article/" + this.$route.params.id)
       .then(response => {
-        this.article = response.data;
+        this.article = response.data.data;
         this.src = "http://111.229.157.160/uploads/" + this.article.cover_img;
-        console.log(this.src);
         this.content = md.render(this.article.content);
       })
       .catch(function(error) {

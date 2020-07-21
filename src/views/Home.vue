@@ -50,7 +50,7 @@
                             :elevation="hover ? 12 : 0"
                             hover
                             link
-                            to="article/articleContent"
+                            :to="{name:'Content',params:{id:article.id}}"
                             href="http://localhost:8080/"
                             target="_blank"
                           >
@@ -75,7 +75,7 @@
                                   <v-icon dark>mdi-home-roof</v-icon>
                                 </v-avatar>
 
-                                <div class="pl-2">{{ article.author }} · 22 July 2019</div>
+                                <div class="pl-2">{{ article.author }} · {{ article.publish_at }}</div>
                               </div>
                             </v-card-text>
                           </v-card>
@@ -185,7 +185,7 @@
 import AppBar from "@/components/Layout/AppBar";
 import Footer from "@/components/Layout/Footer";
 import SiderBar from "@/components/Layout/Sidebar";
-// import Axios from "axios";
+
 export default {
   name: "Home",
   components: {
@@ -200,8 +200,8 @@ export default {
     this.$axios
       .get("http://111.229.157.160/api/article")
       .then(response => {
-        this.articles = response.data;
-        console.log(response.data);
+        this.articles = response.data.data;
+        console.log(this.articles);
       })
       .catch(function(error) {
         console.log(error);
